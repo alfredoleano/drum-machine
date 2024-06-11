@@ -27,7 +27,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: greenyellow;
+  // background-color: greenyellow;
 }
 
 #display {
@@ -36,7 +36,8 @@ body {
   max-width: 590px;
   margin: 30px auto;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Subtle shadow */
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-auto-columns: min-content;
@@ -56,11 +57,13 @@ body {
   height: 80px;
   // width: 100%;
   // height: 100%;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 1px solid #000;
+  // border: none;
   font-weight: 800;
   font-size: 1.1rem;
   cursor: pointer;
+  outline: none;
   background-color: #F3B941;
 }
 
@@ -125,7 +128,7 @@ body {
   background-color: #ccc;
   -webkit-transition: .4s;
   transition: .4s;
-  border-radius: 20px;
+  border-radius: 25px;
 }
 
 .slider.bank {
