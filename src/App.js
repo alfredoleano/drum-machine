@@ -4,7 +4,7 @@ import './styles.scss';
 
 function App() {
   const bank1 = {
-    Q: 'sounds/jazz.wav',
+    Q: 'sounds/Heater-1.mp3',
     W: 'sounds/Heater-2.mp3',
     E: 'sounds/Heater-3.mp3',
     A: 'sounds/Heater-4_1.mp3',
@@ -21,7 +21,7 @@ function App() {
     E: 'sounds/bangu.wav',
     A: 'sounds/num.wav',
     S: 'sounds/stroke.wav',
-    D: 'sounds/cymbal.wav',
+    D: 'sounds/cymbals.wav',
     Z: 'sounds/tom.wav', 
     X: 'sounds/kick.wav',
     C: 'sounds/snare.wav'
@@ -30,6 +30,7 @@ function App() {
   const [volume, setVolume] = useState(50); // initial sound value
   const [power, setPower] = useState(false); //initial power volume
   const [bank, setBank] = useState(bank1); // initial bank value 
+  const [isBank1, setIsBank1] = useState(true); // initial bank toggle state
 
   // Function to change volume
   const changeVolume = (event) => {
@@ -43,16 +44,8 @@ function App() {
 
   // Function to switch Banks
   const toggleBank = () => {
-    // console.log("Current Bank: ", bank);
-    // setBank(bank === bank1 ? bank2 : bank1); // Set the appropriate Bank based off the current Bank
-    // console.log("Updated Bank: ", bank === bank1 ? bank2 : bank1);
-    setBank(prevBank => {
-      const newBank = prevBank === bank1 ? bank2 : bank1;
-      console.log("Toggling Bank");
-      console.log("Previous Bank: ", prevBank === bank1 ? "bank1" : "bank2");
-      console.log("New Bank: ", newBank === bank1 ? "bank1" : "bank2");
-      return newBank;
-    });
+    setBank(isBank1 ? bank2 : bank1);
+    setIsBank1(!isBank1);
   }
 
   // Function to play sound
@@ -62,13 +55,7 @@ function App() {
     audio.volume = volume / 100; // initial sound volume
     audio.currentTime = 0; // Set audio to beginning
     audio.play();
-    console.log(`Playing sound: ${bank[id]}`); // Add a console log to check which sound is being played
   };
-
-  useEffect(() => {
-    console.log("Bank Updated To: ", bank === bank1 ? "bank1" : "bank2");
-  }, [bank]);
-  
 
   // Use useEffect to add event listener for keydown events
   useEffect(() => {
@@ -149,7 +136,7 @@ function App() {
             <div className='settings'>
               <label>Bank</label>
               <label className="switch">
-                <input type="checkbox" onChange={toggleBank}/>
+                <input type="checkbox" checked={!isBank1} onChange={toggleBank}/>
                 <span className="slider bank"></span>
               </label>
             </div>
