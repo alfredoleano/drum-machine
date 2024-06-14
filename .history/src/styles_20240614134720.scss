@@ -247,8 +247,6 @@ input[type="range"]::-ms-track {
     height: 100vh;
     width: 100vw;
     display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative; /* Allows child absolute positioning */
     // background-color: pink;
   }
@@ -256,10 +254,11 @@ input[type="range"]::-ms-track {
   #display {
     position: absolute;
     width: 590px; /* Adjusted width to fit within viewport height when rotated */
-    // height: 80vw; /* Adjusted height to fit within viewport width when rotated */
-    left: 50%; /* Centers the element horizontally */
-    top: 50%;  /* Centers the element vertically */
-    transform: translate(-50%, -80%) rotate(90deg); /* Adjusts positioning and rotates */
+    height: 80vw; /* Adjusted height to fit within viewport width when rotated */
+    // left: 50%; /* Centers the element horizontally */
+    // top: 50%;  /* Centers the element vertically */
+    transform: translateY(-50%) rotate(90deg); /* Adjusts positioning and rotates */
     transform-origin: center center;
+    top: 40%;
   }
 }

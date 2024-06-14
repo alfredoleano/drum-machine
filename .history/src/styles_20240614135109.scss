@@ -259,7 +259,7 @@ input[type="range"]::-ms-track {
     // height: 80vw; /* Adjusted height to fit within viewport width when rotated */
     left: 50%; /* Centers the element horizontally */
     top: 50%;  /* Centers the element vertically */
-    transform: translate(-50%, -80%) rotate(90deg); /* Adjusts positioning and rotates */
+    transform: translate(-50%, 40%) rotate(90deg); /* Adjusts positioning and rotates */
     transform-origin: center center;
   }
 }

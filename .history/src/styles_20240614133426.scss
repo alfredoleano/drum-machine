@@ -236,6 +236,25 @@ input[type="range"]::-ms-track {
 
 /******************** Mobile Design **********************/
 @media screen and (max-width: 490px) {
+  // body {
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
+
+  // #drum-machine {
+  //   height: 100vh;
+  //   width: 100vw;
+  //   // background-color: pink;
+  // }
+
+  // #display {
+  //   width: 700px;
+  //   height: 85vw;
+  //   transform: rotate(90deg);
+  //   transform-origin: center;
+  // }
+
   body {
     display: flex;
     justify-content: center;
@@ -246,20 +265,17 @@ input[type="range"]::-ms-track {
   #drum-machine {
     height: 100vh;
     width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative; /* Allows child absolute positioning */
     // background-color: pink;
   }
 
   #display {
     position: absolute;
-    width: 590px; /* Adjusted width to fit within viewport height when rotated */
-    // height: 80vw; /* Adjusted height to fit within viewport width when rotated */
+    width: 85vh; /* Adjusted width to fit within viewport height when rotated */
+    height: 80vw; /* Adjusted height to fit within viewport width when rotated */
     left: 50%; /* Centers the element horizontally */
     top: 50%;  /* Centers the element vertically */
-    transform: translate(-50%, -80%) rotate(90deg); /* Adjusts positioning and rotates */
+    transform: translate(-50%, -50%) rotate(90deg); /* Adjusts positioning and rotates */
     transform-origin: center center;
   }
 }
