@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import './styles.scss';
 
@@ -48,17 +48,17 @@ function App() {
     setIsBank1(!isBank1);
   }
 
-  // Function to play sound
-  const playSound = useCallback((id) => {
+  // Use useEffect to add event listener for keydown events
+  useEffect(() => {
+    // Function to play sound
+    const playSound = (id) => {
     if(!power) return; // Check if the power is on
     const audio = new Audio(bank[id]);
     audio.volume = volume / 100; // initial sound volume
     audio.currentTime = 0; // Set audio to beginning
     audio.play();
-  }, [power, volume, bank]);
+  };
 
-  // Use useEffect to add event listener for keydown events
-  useEffect(() => {
     // Make the approptiate key play the approptiate sound
     const handleKeydown = (event) => {
       const key = event.key.toUpperCase();
@@ -93,7 +93,7 @@ function App() {
       window.removeEventListener('keydown', handleKeydown);
       window.removeEventListener('keyup', handleKeyup);
     };
-  }, [playSound]);
+  }, [volume, power, bank]);
 
   return (
     <div className="App">

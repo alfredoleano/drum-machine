@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import './styles.scss';
 
@@ -49,13 +49,13 @@ function App() {
   }
 
   // Function to play sound
-  const playSound = useCallback((id) => {
+  const playSound = (id) => {
     if(!power) return; // Check if the power is on
     const audio = new Audio(bank[id]);
     audio.volume = volume / 100; // initial sound volume
     audio.currentTime = 0; // Set audio to beginning
     audio.play();
-  }, [power, volume, bank]);
+  };
 
   // Use useEffect to add event listener for keydown events
   useEffect(() => {
@@ -93,7 +93,26 @@ function App() {
       window.removeEventListener('keydown', handleKeydown);
       window.removeEventListener('keyup', handleKeyup);
     };
-  }, [playSound]);
+  }, [volume, power, bank]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const display = document.getElementById('display');
+      if (window.innerWidth <= 490) {
+        display.style.width = `${window.innerHeight}px`;
+      }
+      else {
+        display.style.width = '';
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <div className="App">

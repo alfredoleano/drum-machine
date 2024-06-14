@@ -95,7 +95,7 @@ body {
   padding: 10px;
   height: 35%;
   width: 100%;
-  background-color: #E87A5D;
+  // background-color: #E87A5D;
 }
 
 
@@ -243,16 +243,25 @@ input[type="range"]::-ms-track {
     align-items: center;
   }
 
-  #drum-machine {
-    height: 100vh;
-    width: 100vw;
-    // background-color: pink;
+  .display-wrapper {
+    width: 100vh;
+    height: 85vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   #display {
-    width: 700px;
-    height: 85vw;
     transform: rotate(90deg);
-    transform-origin: center;
+    // max-width: 100vh;
+    width: 100%;
+    height: 100%;
+  }
+
+  .App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
   }
 }

@@ -246,13 +246,23 @@ input[type="range"]::-ms-track {
   #drum-machine {
     height: 100vh;
     width: 100vw;
-    // background-color: pink;
+    overflow: hidden;
+    background-color: pink;
   }
 
   #display {
+    // transform: rotate(90deg);
+    // rotate: 90deg;
+    // max-width: 100vh;
     width: 700px;
     height: 85vw;
     transform: rotate(90deg);
     transform-origin: center;
   }
+
+  // .buttons-grid button {
+  //   height: 55px;
+  // }
+
+  // .settings {}
 }
